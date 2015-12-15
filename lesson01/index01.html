@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>lesson01</title>
+<meta charset="utf-8">
+<script>
+function answerCheck(){
+  var inputText = document.getElementById('inputArea').value.replace(/\r\n|\r/g, "\n");
+  var lines = inputText.split( '\n' );
+  var outString = "";
+  for (var i = 0; i < lines.length; i++) {
+    if (lines[i] == '') {
+      continue;
+    }
+    var matchString = applyRegularExpression(lines[i]);
+    if (matchString) {
+      outString = outString + matchString + "\n";
+    }
+  }
+  document.getElementById('resultArea').value = outString;
+}
+
+function applyRegularExpression(text) {
+  var ansPattern = document.getElementById('answerBox').value; 
+  var regexp = new RegExp(ansPattern, "g");
+  if (text.match(regexp)) {
+    return text;
+  }
+}
+</script>
+</head>
+<body>
+<p>大文字のアルファベット3文字にマッチする正規表現は？</p>
+<form name="fm">
+入力:<br>
+<textarea id="inputArea" name="inputArea" cols="40" rows="7" readonly>
+ABC
+DbC
+SP2
+UUID
+WWW
+</textarea>
+<br>
+期待値:<br>
+<textarea id="outputArea" name="outputArea" cols="40" rows="7" readonly>
+ABC
+WWW
+</textarea>
+<br>
+回答:<input id="answerBox" type="text">
+<input type="button" id="answerButton" value="回答する" onClick="answerCheck()">
+<br>
+結果:<br>
+<textarea id="resultArea" name="resultArea" cols="40" rows="7"></textarea>
+</form>
+</body>
+</html>
+
