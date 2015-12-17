@@ -1,25 +1,26 @@
 <html>
 <head>
-<title>lesson01</title>
+<title>lesson02</title>
 <meta charset="utf-8">
 <script type="text/javascript" src="../public/javascript/common.js"></script>
 </head>
 <body>
-<p>大文字のアルファベット3文字にマッチする正規表現は？</p>
+<p>数字以外の文字が含まれる行にマッチする正規表現は？</p>
 <form name="fm">
 入力:<br>
 <textarea id="inputArea" name="inputArea" cols="40" rows="7" readonly>
-ABC
-DbC
-SP2
-UUID
-WWW
+5010
+3.162
+-1
+0
+10km
 </textarea>
 <br>
 期待値:<br>
 <textarea id="outputArea" name="outputArea" cols="40" rows="7" readonly>
-ABC
-WWW
+3.162
+-1
+10km
 </textarea>
 <br>
 回答:<input id="answerBox" type="text">
